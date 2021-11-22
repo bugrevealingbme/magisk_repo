@@ -11,9 +11,11 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:flutter_downloader/flutter_downloader.dart';
+import 'package:magisk_repo/screens/markdown.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:root/root.dart';
+import 'package:flutter_archive/flutter_archive.dart';
 
 extension E on String {
   String lastChars(int n) => substring(length - n);
@@ -32,8 +34,8 @@ class MyHomePage extends StatefulWidget {
 
 Future fetchData() async {
   final response = await http.get(
-    Uri.parse('https://xiaomiui.net/apps/magiskapi/api.php'),
-    headers: {HttpHeaders.authorizationHeader: 'L2HRYaQtgFFF2'},
+    Uri.parse(
+        'https://raw.githubusercontent.com/Magic-Mask-Repo/json/main/modules.json'),
   );
 
   if (response.statusCode == 200) {
@@ -43,10 +45,24 @@ Future fetchData() async {
   }
 }
 
+Future fetchProp(String url) async {
+  final response = await http.get(
+    Uri.parse(url),
+  );
+
+  if (response.statusCode == 200) {
+    return (response.body);
+  } else {
+    throw Exception('Failed to get data.');
+  }
+}
+
 class _MyHomePageState extends State<MyHomePage> {
   late Future futureData;
   TextEditingController editingController = TextEditingController();
   String searchString = "";
+  bool viewer = false;
+
   late bool _permissionReady;
   late String _localPath;
   ReceivePort _port = ReceivePort();
@@ -292,7 +308,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 20),
               /*FutureBuilder(
                   future: FlutterDownloader.loadTasks(),
                   builder: (context, snaphat) {
@@ -302,11 +318,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   future: futureData,
                   builder: (BuildContext context, AsyncSnapshot snapshot) {
                     if (snapshot.hasData) {
-                      List apiData = snapshot.data;
+                      List apiData = snapshot.data['modules'];
 
-                      return ListView.separated(
-                          separatorBuilder: (BuildContext context, int index) =>
-                              const Divider(),
+                      return ListView.builder(
                           padding: const EdgeInsets.all(0),
                           scrollDirection: Axis.vertical,
                           shrinkWrap: true,
@@ -314,7 +328,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           itemCount: apiData.length,
                           itemBuilder: (context, index) {
                             _tasks.add(_TaskInfo(
-                              link: apiData[index]['module_link'],
+                              link: apiData[index]['zip_url'],
                             ));
 
                             //if (index == apiData.length - 1) {
@@ -333,135 +347,47 @@ class _MyHomePageState extends State<MyHomePage> {
                                 MediaQuery.of(context).platformBrightness;
                             bool darkModeOn = brightness == Brightness.dark;
                             //}
-                            if (apiData[index]['module_name']
+                            if (index == 0) {
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "Online Repo (" +
+                                            apiData.length.toString() +
+                                            ")",
+                                        style: const TextStyle(fontSize: 18),
+                                      ),
+                                      const Spacer(),
+                                      IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            viewer = viewer ? false : true;
+                                            debugPrint(viewer.toString());
+                                          });
+                                        },
+                                        icon: viewer
+                                            ? const Icon(
+                                                Icons.calendar_view_day_rounded)
+                                            : const Icon(
+                                                Icons.calendar_view_day),
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(height: 15)
+                                ],
+                              );
+                            }
+                            if (apiData[index]['prop_content']['name']
                                 .toString()
                                 .toLowerCase()
                                 .contains(searchString.toLowerCase())) {
-                              return Container(
-                                padding: const EdgeInsets.all(20),
-                                decoration: BoxDecoration(
-                                    // ,
-                                    color: darkModeOn
-                                        ? null
-                                        : Theme.of(context).cardColor,
-                                    border: darkModeOn
-                                        ? Border.all(
-                                            color: Theme.of(context).cardColor)
-                                        : null,
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      apiData[index]['module_name'].toString(),
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
-                                          color: apiData[index]['onay'] == "1"
-                                              ? Colors.green
-                                              : null),
-                                    ),
-                                    const SizedBox(height: 5),
-                                    Text(
-                                      "Created by " +
-                                          apiData[index]['module_author']
-                                              .toString(),
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 5),
-                                    Text(
-                                      apiData[index]['module_text'].toString(),
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 20),
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        if (_tasks[index].status ==
-                                            DownloadTaskStatus.running) ...[
-                                          const CircularProgressIndicator(),
-                                        ] else if (_tasks[index].status ==
-                                            DownloadTaskStatus.complete) ...[
-                                          TextButton.icon(
-                                              onPressed: () async {
-                                                //get root status
-                                                bool? result =
-                                                    await Root.isRooted();
-
-                                                //get downloaded file name
-                                                String filename =
-                                                    await _getFilename(
-                                                        _tasks[index]);
-
-                                                //if root and file zip flash
-                                                if (result == true) {
-                                                  if (filename.lastChars(3) ==
-                                                      "zip") {
-                                                    _flashDialog(filename);
-                                                  } else {
-                                                    Fluttertoast.showToast(
-                                                      msg:
-                                                          "The file is not .zip",
-                                                    );
-                                                  }
-                                                } else {
-                                                  Fluttertoast.showToast(
-                                                    msg:
-                                                        "You don't have root permission.",
-                                                  );
-                                                }
-                                              },
-                                              label: const Text(
-                                                "Install Module",
-                                                style: TextStyle(
-                                                    color: Colors.orange),
-                                              ),
-                                              icon: const Icon(
-                                                Icons.flash_on_outlined,
-                                                color: Colors.orange,
-                                              )),
-                                          TextButton.icon(
-                                              onPressed: () {
-                                                _delete(_tasks[index]);
-                                              },
-                                              label: const Text(
-                                                "Delete File",
-                                                style: TextStyle(
-                                                    color: Colors.red),
-                                              ),
-                                              icon: const Icon(
-                                                Icons.delete,
-                                                color: Colors.red,
-                                              )),
-                                        ] else ...[
-                                          TextButton.icon(
-                                              onPressed: () {
-                                                _requestDownload(_tasks[index]);
-                                              },
-                                              icon: const Icon(
-                                                Icons.download,
-                                                color: Colors.blue,
-                                              ),
-                                              label: const Text(
-                                                "Download",
-                                                style: TextStyle(
-                                                    color: Colors.blue),
-                                              )),
-                                        ]
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              );
+                              return viewer
+                                  ? moduleListView(
+                                      darkModeOn, context, apiData, index)
+                                  : moduleCardView(
+                                      darkModeOn, context, apiData, index);
                             } else {
                               return Container();
                             }
@@ -473,6 +399,267 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  moduleListView(
+      bool darkModeOn, BuildContext context, List<dynamic> apiData, int index) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      margin: const EdgeInsets.only(bottom: 15),
+      decoration: BoxDecoration(
+          // ,
+          color: darkModeOn ? null : Theme.of(context).cardColor,
+          border: darkModeOn
+              ? Border.all(color: Theme.of(context).cardColor)
+              : null,
+          borderRadius: BorderRadius.circular(10)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                flex: 3,
+                child: Text(
+                  apiData[index]['prop_content']['name'].toString(),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              const Spacer(),
+              if (_tasks[index].status == DownloadTaskStatus.running) ...[
+                const CircularProgressIndicator(),
+              ] else if (_tasks[index].status ==
+                  DownloadTaskStatus.complete) ...[
+                IconButton(
+                    onPressed: () async {
+                      //get root status
+                      bool? result = await Root.isRooted();
+
+                      //get downloaded file name
+                      String filename = await _getFilename(_tasks[index]);
+
+                      //if root and file zip flash
+                      final ezipFile =
+                          File(_localPath.toString() + "/" + filename);
+                      if (ezipFile.existsSync()) {
+                        if (result == true) {
+                          if (filename.lastChars(3) == "zip") {
+                            _flashDialog(filename);
+                          } else {
+                            Fluttertoast.showToast(
+                              msg: "The file is not .zip",
+                            );
+                          }
+                        } else {
+                          Fluttertoast.showToast(
+                            msg: "You don't have root permission.",
+                          );
+                        }
+                      } else {
+                        Fluttertoast.showToast(
+                          msg: "File not found. Try downloading again.",
+                        );
+                        _delete(_tasks[index]);
+                      }
+                    },
+                    icon: const Icon(
+                      Icons.flash_on_outlined,
+                      color: Colors.orange,
+                    )),
+                IconButton(
+                    onPressed: () {
+                      _delete(_tasks[index]);
+                    },
+                    icon: const Icon(
+                      Icons.delete,
+                      color: Colors.red,
+                    )),
+              ] else ...[
+                IconButton(
+                  onPressed: () {
+                    _requestDownload(_tasks[index]);
+                  },
+                  icon: const Icon(
+                    Icons.download,
+                    color: Colors.blue,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    /*moduleInfoSheet(
+                                                  apiData, index, context);*/
+                    var props = fetchProp(apiData[index]['notes_url']);
+
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => MarkdownPage(
+                                  title: apiData[index]['id'],
+                                  data: props,
+                                )));
+                  },
+                  icon: const Icon(
+                    Icons.info,
+                    color: Colors.orange,
+                  ),
+                ),
+              ]
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  moduleCardView(
+      bool darkModeOn, BuildContext context, List<dynamic> apiData, int index) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      margin: const EdgeInsets.only(bottom: 15),
+      decoration: BoxDecoration(
+          // ,
+          color: darkModeOn ? null : Theme.of(context).cardColor,
+          border: darkModeOn
+              ? Border.all(color: Theme.of(context).cardColor)
+              : null,
+          borderRadius: BorderRadius.circular(10)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            apiData[index]['prop_content']['name'].toString(),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
+          ),
+          const SizedBox(height: 5),
+          Text(
+            "Created by " + apiData[index]['prop_content']['author'].toString(),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 14,
+            ),
+          ),
+          const SizedBox(height: 5),
+          if (apiData[index]['prop_content']['description']
+              .toString()
+              .isNotEmpty) ...[
+            Text(
+              apiData[index]['prop_content']['description'].toString(),
+              style: const TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 14,
+              ),
+            ),
+          ],
+          const SizedBox(height: 20),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              if (_tasks[index].status == DownloadTaskStatus.running) ...[
+                const CircularProgressIndicator(),
+              ] else if (_tasks[index].status ==
+                  DownloadTaskStatus.complete) ...[
+                TextButton.icon(
+                    onPressed: () async {
+                      //get root status
+                      bool? result = await Root.isRooted();
+
+                      //get downloaded file name
+                      String filename = await _getFilename(_tasks[index]);
+
+                      //if root and file zip flash
+                      final ezipFile =
+                          File(_localPath.toString() + "/" + filename);
+                      if (ezipFile.existsSync()) {
+                        if (result == true) {
+                          if (filename.lastChars(3) == "zip") {
+                            _flashDialog(filename);
+                          } else {
+                            Fluttertoast.showToast(
+                              msg: "The file is not .zip",
+                            );
+                          }
+                        } else {
+                          Fluttertoast.showToast(
+                            msg: "You don't have root permission.",
+                          );
+                        }
+                      } else {
+                        Fluttertoast.showToast(
+                          msg: "File not found. Try downloading again.",
+                        );
+                        _delete(_tasks[index]);
+                      }
+                    },
+                    label: const Text(
+                      "Install Module",
+                      style: TextStyle(color: Colors.orange),
+                    ),
+                    icon: const Icon(
+                      Icons.flash_on_outlined,
+                      color: Colors.orange,
+                    )),
+                TextButton.icon(
+                    onPressed: () {
+                      _delete(_tasks[index]);
+                    },
+                    label: const Text(
+                      "Delete File",
+                      style: TextStyle(color: Colors.red),
+                    ),
+                    icon: const Icon(
+                      Icons.delete,
+                      color: Colors.red,
+                    )),
+              ] else ...[
+                TextButton.icon(
+                    onPressed: () {
+                      _requestDownload(_tasks[index]);
+                    },
+                    icon: const Icon(
+                      Icons.download,
+                      color: Colors.blue,
+                    ),
+                    label: const Text(
+                      "Download",
+                      style: TextStyle(color: Colors.blue),
+                    )),
+                TextButton.icon(
+                    onPressed: () {
+                      /*moduleInfoSheet(
+                                                  apiData, index, context);*/
+                      var props = fetchProp(apiData[index]['notes_url']);
+
+                      Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (context) => MarkdownPage(
+                                    title: apiData[index]['id'],
+                                    data: props,
+                                  )));
+                    },
+                    icon: const Icon(
+                      Icons.info,
+                      color: Colors.orange,
+                    ),
+                    label: const Text(
+                      "Info",
+                      style: TextStyle(color: Colors.orange),
+                    )),
+              ]
+            ],
+          )
+        ],
       ),
     );
   }
@@ -594,7 +781,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               resing,
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                             ),
                           ),
                     const SizedBox(height: 25),
@@ -611,11 +798,60 @@ class _MyHomePageState extends State<MyHomePage> {
                           TextButton(
                             child: const Text('Install'),
                             onPressed: () async {
+                              //delete old file
+                              try {
+                                final oldFile = File(_localPath.toString() +
+                                    "/will_be_install.zip");
+                                oldFile.delete();
+                              } catch (e) {}
+
+                              setState(() {
+                                resing = "Extracting file from .zip...";
+                              });
+
+                              //extract zip
+                              final ezipFile =
+                                  File(_localPath.toString() + "/" + filename);
+                              final destinationDir =
+                                  Directory(_localPath.toString() + "/");
+                              try {
+                                await ZipFile.extractToDirectory(
+                                    zipFile: ezipFile,
+                                    destinationDir: destinationDir);
+
+                                //delete zip
+                                ezipFile.delete();
+                              } catch (e) {}
+
+                              setState(() {
+                                resing = "Compressing the file as .zip...";
+                              });
+
+                              //zip
+                              final dataDir = Directory(_localPath.toString() +
+                                  "/" +
+                                  filename.toString().replaceAll(".zip", ""));
+                              try {
+                                final zipFile = File(_localPath.toString() +
+                                    "/will_be_install.zip");
+                                await ZipFile.createFromDirectory(
+                                    sourceDir: dataDir,
+                                    zipFile: zipFile,
+                                    includeBaseDirectory: false,
+                                    recurseSubDirs: true);
+
+                                //delete folder
+                                dataDir.deleteSync(recursive: true);
+                              } catch (e) {}
+
+                              setState(() {
+                                resing = "Installation Started...";
+                              });
+
                               String? res = await Root.exec(
                                   cmd: "magisk --install-module " +
                                       _localPath.toString() +
-                                      "/" +
-                                      filename);
+                                      "/will_be_install.zip");
                               setState(() {
                                 resing = res!;
                               });

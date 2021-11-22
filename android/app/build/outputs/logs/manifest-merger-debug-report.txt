@@ -11,6 +11,7 @@ INJECTED from E:\flutter_apps\magisk_repo\android\app\src\main\AndroidManifest.x
 MERGED from E:\flutter_apps\magisk_repo\android\app\src\main\AndroidManifest.xml:1:1-69:12
 MERGED from [:fluttertoast] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\fluttertoast-8.0.8\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:device_info] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\device_info-2.0.3\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_archive] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\flutter_archive-4.1.0\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:google_mobile_ads] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\google_mobile_ads-0.13.6\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:flutter_downloader] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\flutter_downloader-1.7.1\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-14:12
 MERGED from [:onesignal_flutter] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\onesignal_flutter-3.2.4\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
@@ -246,6 +247,8 @@ MERGED from [:fluttertoast] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\fl
 MERGED from [:fluttertoast] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\fluttertoast-8.0.8\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:device_info] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\device_info-2.0.3\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:device_info] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\device_info-2.0.3\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_archive] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\flutter_archive-4.1.0\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_archive] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\flutter_archive-4.1.0\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:google_mobile_ads] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\google_mobile_ads-0.13.6\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:google_mobile_ads] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\google_mobile_ads-0.13.6\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_downloader] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\flutter_downloader-1.7.1\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44

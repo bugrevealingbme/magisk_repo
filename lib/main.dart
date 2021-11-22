@@ -22,7 +22,6 @@ Future<void> main() async {
       .promptUserForPushNotificationPermission()
       .then((accepted) {});
 
-  WidgetsFlutterBinding.ensureInitialized();
   await FlutterDownloader.initialize(
       debug: true // optional: set false to disable printing logs to console
       );
@@ -134,7 +133,7 @@ class _MyAppState extends State<MyApp> {
               statusBarIconBrightness: Brightness.light),
         ),
       ),
-      home: MyHomePage(title: 'Magic Mask', platform: platform),
+      home: MyHomePage(title: 'Magic Mask Repo', platform: platform),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -15,17 +15,24 @@ ADDED from E:\flutter_apps\magisk_repo\android\app\src\main\AndroidManifest.xml:
 INJECTED from E:\flutter_apps\magisk_repo\android\app\src\main\AndroidManifest.xml:1:1-69:12
 INJECTED from E:\flutter_apps\magisk_repo\android\app\src\main\AndroidManifest.xml:1:1-69:12
 INJECTED from E:\flutter_apps\magisk_repo\android\app\src\main\AndroidManifest.xml:1:1-69:12
+MERGED from [:video_player] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\video_player-2.2.7\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:fluttertoast] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\fluttertoast-8.0.8\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:device_info] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\device_info-2.0.3\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_archive] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\flutter_archive-4.1.0\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:google_mobile_ads] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\google_mobile_ads-0.13.6\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-15:12
 MERGED from [:flutter_downloader] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\flutter_downloader-1.7.1\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-14:12
 MERGED from [:onesignal_flutter] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\onesignal_flutter-3.2.4\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
+MERGED from [:url_launcher] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\url_launcher-6.0.12\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-14:12
 MERGED from [:path_provider] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\path_provider-2.0.6\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:root] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\root-2.0.2\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:permission_handler] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\permission_handler-8.2.6\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:android_path_provider] E:\flutter_apps\magisk_repo\build\android_path_provider\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [:shared_preferences] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\shared_preferences-2.0.8\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-7:12
 MERGED from [com.onesignal:OneSignal:4.6.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\7ececcb690df627958345a9491cbba77\jetified-OneSignal-4.6.1\AndroidManifest.xml:2:1-136:12
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\386ae10e840d8e4eb7e6a16c47e9e26a\jetified-exoplayer-hls-2.14.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\a6c5cc3fb521acd2cea4411f7023ccb1\jetified-exoplayer-dash-2.14.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\89d38b165ef25ab2b5a1aa84ddf6a49a\jetified-exoplayer-smoothstreaming-2.14.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\7ba8580a5dc5328fe787a86cb85d8be3\jetified-exoplayer-core-2.14.1\AndroidManifest.xml:17:1-26:12
 MERGED from [com.google.android.gms:play-services-ads:20.1.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\38d71523066721a5f17b71c0f3d1e985\jetified-play-services-ads-20.1.0\AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.android.gms:play-services-ads-lite:20.1.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\c61098de44986dda303694a007167937\jetified-play-services-ads-lite-20.1.0\AndroidManifest.xml:17:1-66:12
 MERGED from [androidx.work:work-runtime:2.7.0-rc01] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\8e85f206700bd7ba56649cbb1529f5fd\work-runtime-2.7.0-rc01\AndroidManifest.xml:17:1-145:12
@@ -64,6 +71,8 @@ MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\bug
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\532ccf14bb4e1d9f013b5b40be860ef3\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core:1.6.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\44318f973e18fa59fe3957d8af199b21\core-1.6.0\AndroidManifest.xml:17:1-26:12
 MERGED from [com.github.topjohnwu.libsu:core:3.1.2] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\51a65ada6019dc1d9a0b7f4634183279\jetified-core-3.1.2\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\013c3e58cf792ffe5f6ef66893e8dadf\jetified-exoplayer-extractor-2.14.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\034340f8a9b5dc0b86d5ba5443a7ff4a\jetified-exoplayer-common-2.14.1\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\0c47b7183e60fa3c4c0949382063fdcb\jetified-startup-runtime-1.0.0\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.room:room-runtime:2.2.5] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\88ed312290ce410cdde27e65765480d3\room-runtime-2.2.5\AndroidManifest.xml:17:1-31:12
 MERGED from [androidx.sqlite:sqlite-framework:2.1.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\b4432c75bcf304eaa20b600d27403202\sqlite-framework-2.1.0\AndroidManifest.xml:17:1-24:12
@@ -128,6 +137,8 @@ application
 ADDED from E:\flutter_apps\magisk_repo\android\app\src\main\AndroidManifest.xml:7:4-60:19
 MERGED from [:google_mobile_ads] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\google_mobile_ads-0.13.6\android\build\intermediates\library_manifest\release\AndroidManifest.xml:9:5-13:19
 MERGED from [:google_mobile_ads] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\google_mobile_ads-0.13.6\android\build\intermediates\library_manifest\release\AndroidManifest.xml:9:5-13:19
+MERGED from [:url_launcher] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\url_launcher-6.0.12\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-12:19
+MERGED from [:url_launcher] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\url_launcher-6.0.12\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-12:19
 MERGED from [com.onesignal:OneSignal:4.6.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\7ececcb690df627958345a9491cbba77\jetified-OneSignal-4.6.1\AndroidManifest.xml:48:5-134:19
 MERGED from [com.onesignal:OneSignal:4.6.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\7ececcb690df627958345a9491cbba77\jetified-OneSignal-4.6.1\AndroidManifest.xml:48:5-134:19
 MERGED from [com.google.android.gms:play-services-ads-lite:20.1.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\c61098de44986dda303694a007167937\jetified-play-services-ads-lite-20.1.0\AndroidManifest.xml:45:5-64:19
@@ -246,16 +257,22 @@ uses-sdk
 INJECTED from E:\flutter_apps\magisk_repo\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\flutter_apps\magisk_repo\android\app\src\main\AndroidManifest.xml
 INJECTED from E:\flutter_apps\magisk_repo\android\app\src\main\AndroidManifest.xml
+MERGED from [:video_player] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\video_player-2.2.7\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:video_player] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\video_player-2.2.7\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:fluttertoast] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\fluttertoast-8.0.8\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:fluttertoast] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\fluttertoast-8.0.8\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:device_info] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\device_info-2.0.3\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:device_info] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\device_info-2.0.3\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_archive] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\flutter_archive-4.1.0\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_archive] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\flutter_archive-4.1.0\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:google_mobile_ads] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\google_mobile_ads-0.13.6\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:google_mobile_ads] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\google_mobile_ads-0.13.6\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_downloader] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\flutter_downloader-1.7.1\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_downloader] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\flutter_downloader-1.7.1\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:onesignal_flutter] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\onesignal_flutter-3.2.4\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:onesignal_flutter] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\onesignal_flutter-3.2.4\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\url_launcher-6.0.12\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\url_launcher-6.0.12\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\path_provider-2.0.6\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\path_provider-2.0.6\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [:root] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\root-2.0.2\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
@@ -268,6 +285,14 @@ MERGED from [:shared_preferences] E:\src\flutter\.pub-cache\hosted\pub.dartlang.
 MERGED from [:shared_preferences] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\shared_preferences-2.0.8\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-44
 MERGED from [com.onesignal:OneSignal:4.6.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\7ececcb690df627958345a9491cbba77\jetified-OneSignal-4.6.1\AndroidManifest.xml:4:5-44
 MERGED from [com.onesignal:OneSignal:4.6.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\7ececcb690df627958345a9491cbba77\jetified-OneSignal-4.6.1\AndroidManifest.xml:4:5-44
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\386ae10e840d8e4eb7e6a16c47e9e26a\jetified-exoplayer-hls-2.14.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\386ae10e840d8e4eb7e6a16c47e9e26a\jetified-exoplayer-hls-2.14.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\a6c5cc3fb521acd2cea4411f7023ccb1\jetified-exoplayer-dash-2.14.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\a6c5cc3fb521acd2cea4411f7023ccb1\jetified-exoplayer-dash-2.14.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\89d38b165ef25ab2b5a1aa84ddf6a49a\jetified-exoplayer-smoothstreaming-2.14.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\89d38b165ef25ab2b5a1aa84ddf6a49a\jetified-exoplayer-smoothstreaming-2.14.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\7ba8580a5dc5328fe787a86cb85d8be3\jetified-exoplayer-core-2.14.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\7ba8580a5dc5328fe787a86cb85d8be3\jetified-exoplayer-core-2.14.1\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.gms:play-services-ads:20.1.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\38d71523066721a5f17b71c0f3d1e985\jetified-play-services-ads-20.1.0\AndroidManifest.xml:21:5-23:52
 MERGED from [com.google.android.gms:play-services-ads:20.1.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\38d71523066721a5f17b71c0f3d1e985\jetified-play-services-ads-20.1.0\AndroidManifest.xml:21:5-23:52
 MERGED from [com.google.android.gms:play-services-ads-lite:20.1.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\c61098de44986dda303694a007167937\jetified-play-services-ads-lite-20.1.0\AndroidManifest.xml:20:5-44
@@ -344,6 +369,10 @@ MERGED from [androidx.core:core:1.6.0] C:\Users\bugre\.gradle\caches\transforms-
 MERGED from [androidx.core:core:1.6.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\44318f973e18fa59fe3957d8af199b21\core-1.6.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.github.topjohnwu.libsu:core:3.1.2] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\51a65ada6019dc1d9a0b7f4634183279\jetified-core-3.1.2\AndroidManifest.xml:5:5-7:41
 MERGED from [com.github.topjohnwu.libsu:core:3.1.2] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\51a65ada6019dc1d9a0b7f4634183279\jetified-core-3.1.2\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\013c3e58cf792ffe5f6ef66893e8dadf\jetified-exoplayer-extractor-2.14.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\013c3e58cf792ffe5f6ef66893e8dadf\jetified-exoplayer-extractor-2.14.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\034340f8a9b5dc0b86d5ba5443a7ff4a\jetified-exoplayer-common-2.14.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\034340f8a9b5dc0b86d5ba5443a7ff4a\jetified-exoplayer-common-2.14.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\0c47b7183e60fa3c4c0949382063fdcb\jetified-startup-runtime-1.0.0\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\0c47b7183e60fa3c4c0949382063fdcb\jetified-startup-runtime-1.0.0\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.room:room-runtime:2.2.5] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\88ed312290ce410cdde27e65765480d3\room-runtime-2.2.5\AndroidManifest.xml:20:5-22:41
@@ -412,6 +441,14 @@ ADDED from [:google_mobile_ads] E:\src\flutter\.pub-cache\hosted\pub.dartlang.or
 		ADDED from [:google_mobile_ads] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\google_mobile_ads-0.13.6\android\build\intermediates\library_manifest\release\AndroidManifest.xml:11:13-61
 intent#action:name:android.intent.action.VIEW
 ADDED from [:flutter_downloader] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\flutter_downloader-1.7.1\android\build\intermediates\library_manifest\release\AndroidManifest.xml:9:9-11:18
+activity#io.flutter.plugins.urllauncher.WebViewActivity
+ADDED from [:url_launcher] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\url_launcher-6.0.12\android\build\intermediates\library_manifest\release\AndroidManifest.xml:8:9-11:74
+	android:exported
+		ADDED from [:url_launcher] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\url_launcher-6.0.12\android\build\intermediates\library_manifest\release\AndroidManifest.xml:10:13-37
+	android:theme
+		ADDED from [:url_launcher] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\url_launcher-6.0.12\android\build\intermediates\library_manifest\release\AndroidManifest.xml:11:13-71
+	android:name
+		ADDED from [:url_launcher] E:\src\flutter\.pub-cache\hosted\pub.dartlang.org\url_launcher-6.0.12\android\build\intermediates\library_manifest\release\AndroidManifest.xml:9:13-74
 permission#${applicationId}.permission.C2D_MESSAGE
 ADDED from [com.onesignal:OneSignal:4.6.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\7ececcb690df627958345a9491cbba77\jetified-OneSignal-4.6.1\AndroidManifest.xml:7:5-9:47
 	android:protectionLevel
@@ -454,6 +491,8 @@ ADDED from [com.onesignal:OneSignal:4.6.1] C:\Users\bugre\.gradle\caches\transfo
 		ADDED from [com.onesignal:OneSignal:4.6.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\7ececcb690df627958345a9491cbba77\jetified-OneSignal-4.6.1\AndroidManifest.xml:23:22-63
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.onesignal:OneSignal:4.6.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\7ececcb690df627958345a9491cbba77\jetified-OneSignal-4.6.1\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\7ba8580a5dc5328fe787a86cb85d8be3\jetified-exoplayer-core-2.14.1\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\7ba8580a5dc5328fe787a86cb85d8be3\jetified-exoplayer-core-2.14.1\AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-ads-lite:20.1.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\c61098de44986dda303694a007167937\jetified-play-services-ads-lite-20.1.0\AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-ads-lite:20.1.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\c61098de44986dda303694a007167937\jetified-play-services-ads-lite-20.1.0\AndroidManifest.xml:24:5-79
 MERGED from [androidx.work:work-runtime:2.7.0-rc01] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\8e85f206700bd7ba56649cbb1529f5fd\work-runtime-2.7.0-rc01\AndroidManifest.xml:26:5-79
@@ -462,6 +501,8 @@ MERGED from [com.google.firebase:firebase-iid:19.0.0] C:\Users\bugre\.gradle\cac
 MERGED from [com.google.firebase:firebase-iid:19.0.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\d1e190f809ac580e2fd89ed8e05006bb\jetified-firebase-iid-19.0.0\AndroidManifest.xml:22:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\52df3141a8a36179ebd574aaedc8f35a\jetified-play-services-measurement-sdk-api-18.0.0\AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.0] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\52df3141a8a36179ebd574aaedc8f35a\jetified-play-services-measurement-sdk-api-18.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\034340f8a9b5dc0b86d5ba5443a7ff4a\jetified-exoplayer-common-2.14.1\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.14.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\034340f8a9b5dc0b86d5ba5443a7ff4a\jetified-exoplayer-common-2.14.1\AndroidManifest.xml:24:5-79
 	android:name
 		ADDED from [com.onesignal:OneSignal:4.6.1] C:\Users\bugre\.gradle\caches\transforms-2\files-2.1\7ececcb690df627958345a9491cbba77\jetified-OneSignal-4.6.1\AndroidManifest.xml:24:22-76
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED

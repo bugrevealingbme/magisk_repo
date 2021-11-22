@@ -34,6 +34,7 @@
 -keep class com.onesignal.SyncJobService { <init>(); }
 -keep class com.onesignal.SyncService { <init>(); }
 -keep class com.onesignal.UpgradeReceiver { <init>(); }
+-keep class io.flutter.plugins.urllauncher.WebViewActivity { <init>(); }
 -keep class net.metareverse.magiskrepo.MainActivity { <init>(); }
 -keep class vn.hunghd.flutterdownloader.DownloadedFileProvider { <init>(); }
 -keep class android.widget.Space { <init>(android.content.Context, android.util.AttributeSet); }
