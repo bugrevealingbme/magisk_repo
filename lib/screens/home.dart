@@ -21,6 +21,51 @@ extension E on String {
   String lastChars(int n) => substring(length - n);
 }
 
+AppOpenAd? _appOpenAd;
+bool _isShowingAd = false;
+
+Future<void> loadAd() async {
+  await AppOpenAd.load(
+      adUnitId: 'ca-app-pub-3753684966275105~5577351110',
+      request: const AdRequest(),
+      adLoadCallback: AppOpenAdLoadCallback(
+          onAdLoaded: (ad) {
+            _appOpenAd = ad;
+            showAd();
+          },
+          onAdFailedToLoad: (error) {}),
+      orientation: AppOpenAd.orientationPortrait);
+}
+
+void showAd() {
+  if (_appOpenAd == null) {
+    loadAd();
+    return;
+  }
+
+  if (_isShowingAd) {
+    return;
+  }
+
+  _appOpenAd!.fullScreenContentCallback = FullScreenContentCallback(
+    onAdShowedFullScreenContent: (ad) {
+      _isShowingAd = true;
+    },
+    onAdFailedToShowFullScreenContent: (ad, error) {
+      _isShowingAd = false;
+      ad.dispose();
+      _appOpenAd = null;
+    },
+    onAdDismissedFullScreenContent: (ad) {
+      _isShowingAd = false;
+      ad.dispose();
+      _appOpenAd = null;
+    },
+  );
+
+  _appOpenAd!.show();
+}
+
 class MyHomePage extends StatefulWidget {
   final TargetPlatform? platform;
   const MyHomePage({Key? key, required this.title, required this.platform})
@@ -75,9 +120,12 @@ class _MyHomePageState extends State<MyHomePage> {
   InterstitialAd? _interstitialAd;
   int _numInterstitialLoadAttempts = 0;
 
+  bool showed = false;
+
   @override
   void initState() {
     super.initState();
+    showAd();
 
     futureData = fetchData();
 
@@ -147,6 +195,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     try {
       myBanner.dispose();
+      // ignore: empty_catches
     } catch (e) {}
     _interstitialAd?.dispose();
   }
@@ -160,7 +209,6 @@ class _MyHomePageState extends State<MyHomePage> {
             _interstitialAd = ad;
             _numInterstitialLoadAttempts = 0;
             _interstitialAd!.setImmersiveMode(true);
-            _showInterstitialAd();
           },
           onAdFailedToLoad: (LoadAdError error) {
             _numInterstitialLoadAttempts += 1;
@@ -186,8 +234,11 @@ class _MyHomePageState extends State<MyHomePage> {
         _createInterstitialAd();
       },
     );
-    _interstitialAd!.show();
-    _interstitialAd = null;
+
+    if (showed == false) {
+      _interstitialAd!.show();
+      _interstitialAd = null;
+    }
   }
 
   static void downloadCallback(
@@ -228,6 +279,8 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.only(right: 10),
             child: IconButton(
               onPressed: () {
+                _showInterstitialAd();
+
                 _deviceDialog();
               },
               icon: const Icon(
@@ -439,6 +492,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   DownloadTaskStatus.complete) ...[
                 IconButton(
                     onPressed: () async {
+                      _showInterstitialAd();
+
                       //get root status
                       bool? result = await Root.isRooted();
 
@@ -475,6 +530,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     )),
                 IconButton(
                     onPressed: () {
+                      _showInterstitialAd();
+
                       _delete(_tasks[index]);
                     },
                     icon: const Icon(
@@ -484,6 +541,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ] else ...[
                 IconButton(
                   onPressed: () {
+                    _showInterstitialAd();
+
                     _requestDownload(_tasks[index]);
                   },
                   icon: const Icon(
@@ -493,6 +552,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 IconButton(
                   onPressed: () {
+                    _showInterstitialAd();
+
                     /*moduleInfoSheet(
                                                   apiData, index, context);*/
                     var props = fetchProp(apiData[index]['notes_url']);
@@ -571,6 +632,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   DownloadTaskStatus.complete) ...[
                 TextButton.icon(
                     onPressed: () async {
+                      _showInterstitialAd();
+
                       //get root status
                       bool? result = await Root.isRooted();
 
@@ -611,6 +674,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     )),
                 TextButton.icon(
                     onPressed: () {
+                      _showInterstitialAd();
+
                       _delete(_tasks[index]);
                     },
                     label: const Text(
@@ -624,6 +689,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ] else ...[
                 TextButton.icon(
                     onPressed: () {
+                      _showInterstitialAd();
+
                       _requestDownload(_tasks[index]);
                     },
                     icon: const Icon(
@@ -636,6 +703,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     )),
                 TextButton.icon(
                     onPressed: () {
+                      _showInterstitialAd();
+
                       /*moduleInfoSheet(
                                                   apiData, index, context);*/
                       var props = fetchProp(apiData[index]['notes_url']);
@@ -798,6 +867,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           TextButton(
                             child: const Text('Install'),
                             onPressed: () async {
+                              _showInterstitialAd();
+
                               //delete old file
                               try {
                                 final oldFile = File(_localPath.toString() +
@@ -861,6 +932,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           TextButton(
                             child: const Text('Close'),
                             onPressed: () {
+                              _showInterstitialAd();
+
                               Navigator.of(context).pop();
                             },
                           ),
@@ -951,6 +1024,8 @@ class _MyHomePageState extends State<MyHomePage> {
               TextButton(
                 child: const Text('Close'),
                 onPressed: () {
+                  _showInterstitialAd();
+
                   Navigator.of(context).pop();
                 },
               ),

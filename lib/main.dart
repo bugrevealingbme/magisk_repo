@@ -26,6 +26,8 @@ Future<void> main() async {
       debug: true // optional: set false to disable printing logs to console
       );
 
+  await loadAd();
+
   runApp(const MyApp());
 }
 

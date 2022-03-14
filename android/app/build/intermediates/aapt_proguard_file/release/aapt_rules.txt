@@ -1,4 +1,5 @@
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
+-keep class androidx.lifecycle.ProcessLifecycleOwnerInitializer { <init>(); }
 -keep class androidx.room.MultiInstanceInvalidationService { <init>(); }
 -keep class androidx.startup.InitializationProvider { <init>(); }
 -keep class androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy { <init>(); }
@@ -24,12 +25,11 @@
 -keep class com.onesignal.FCMBroadcastReceiver { <init>(); }
 -keep class com.onesignal.FCMIntentJobService { <init>(); }
 -keep class com.onesignal.FCMIntentService { <init>(); }
--keep class com.onesignal.FocusDelaySyncJobService { <init>(); }
--keep class com.onesignal.FocusDelaySyncService { <init>(); }
 -keep class com.onesignal.HmsMessageServiceOneSignal { <init>(); }
 -keep class com.onesignal.NotificationDismissReceiver { <init>(); }
 -keep class com.onesignal.NotificationOpenedActivityHMS { <init>(); }
 -keep class com.onesignal.NotificationOpenedReceiver { <init>(); }
+-keep class com.onesignal.NotificationOpenedReceiverAndroid22AndOlder { <init>(); }
 -keep class com.onesignal.PermissionsActivity { <init>(); }
 -keep class com.onesignal.SyncJobService { <init>(); }
 -keep class com.onesignal.SyncService { <init>(); }
